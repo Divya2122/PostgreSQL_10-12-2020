@@ -1,0 +1,143 @@
+TRUNCATE TABLE divya.stud;
+
+
+
+ALTER TABLE divya.infostud RENAME TO midhun;
+
+
+
+ALTER TABLE divya.infostud RENAME TO midhun;
+
+ALTER TABLE divya.midhun ADD sex char,
+ADD standard integer;
+
+ALTER TABLE divya.midhun ALTER COLUMN standard TYPE character;
+
+ALTER TABLE divya.midhun DROP COLUMN standard;
+DROP TABLE divya.midhun;
+
+
+SET search_path TO Divyareddy;
+
+CREATE TABLE family(fathername varchar(255), mothername varchar(255));
+
+ALTER TABLE employee.students RENAME TO infostudents;
+
+ALTER TABLE employee.infostudents ADD sex char,
+ADD standard integer;
+
+ALTER TABLE employee.infostudents ALETR COLUMN standard TYPE character;
+
+ALTER TABLE employee.infostudents DROP COLUMN stanadard;
+
+ALTER TABLE employee.infostudents RENAME COLUMN sex TO gender;
+
+
+DROP TABLE employee.infostudents;
+
+
+CREATE SCHEMA company;
+ SET search_path TO company;
+CREATE TABLE employee(
+fname TEXT NOT NULL,
+mname CHAR NULL,
+lname TEXT NOT NULL,
+ssn CHAR(9) NOT NULL PRIMARY KEY,
+Ddate DATE,
+Address TEXT NOT NULL,
+sex CHAR NULL,
+Salary DECIMAL(10,2) NULL,
+super_ssn CHAR(9) NULL,
+Dno INT NOT NULL);
+
+
+CREATE SCHEMA company;
+ SET search_path TO company;
+CREATE TABLE employee(
+fname TEXT NOT NULL,
+mname CHAR NULL,
+lname TEXT NOT NULL,
+ssn CHAR(9) NOT NULL PRIMARY KEY,
+Ddate DATE,
+Address TEXT NOT NULL,
+sex CHAR NULL,
+Salary DECIMAL(10,2) NULL,
+super_ssn CHAR(9) NULL,
+Dno INT NOT NULL);
+
+
+INSERT INTO employee VALUES('Divya', 'A', 'reddy', '999887777', '1998-12-06', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5');
+INSERT INTO department VALUES ('Research', '5', '333445555', '1988-05-22');
+INSERT INTO dependent VALUES ('333445555', 'theodore', 'm', '1983-10-25', 'son');
+INSERT INTO dept_locations VALUES ('1', 'Houston');
+INSERT INTO project VALUES ('ProductX', '1', 'Bellarire', '5')
+INSERT INTO works_on VALUES ('123456789', '1', '32.5');
+
+
+INSERT INTO employee VALUES('Franklin', 'T', 'Wong', '333445555', '1955-12-08', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+INSERT INTO department VALUES ('Administration', '4', '987654321', '1995-01-01');
+INSERT INTO dependent VALUES ('333445555', 'Alice', 'F', '1986-04-05', 'Daughter');
+INSERT INTO dept_locations VALUES ('4', 'Stafford');
+INSERT INTO project VALUES ('productY', '2', 'Sugarland', '5')
+INSERT INTO works_on VALUES ('123456789', '2', '7.5');
+
+
+INSERT INTO works_on (Essn, pro, Hours) VALUES ('453453453', '2', '25');
+
+
+INSERT INTO employee VALUES('Alicia', 'j', 'Zelaya', '999887777', '1968-01-19', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+INSERT INTO employee VALUES('Jennifer', 's', 'Wallace', '987654321', '1941-06-20', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+INSERT INTO employee VALUES('Ramesh', 'k', 'Narayan', '666884444', '1962-09-15', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+INSERT INTO employee VALUES('joyce', 'A', 'English', '453453453', '1972-07-31', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+INSERT INTO employee VALUES('Ahmad', 'V', 'Jabbar', '987987987', '1969-03-29', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+INSERT INTO employee VALUES('james', 'E', 'Borg', '888665555', '1937-11-10', '3/33 nooliveedu, galiveedu, kadapa','m', '25000', '123456789', '5'); 
+
+INSERT INTO departement VALUES ('Headquerys', '1', '888665555', '1981-06-19');
+
+
+INSERT INTO departement VALUES ('333445555', 'joy', 'f', '1998-06-12', 'Spouse');
+INSERT INTO departement VALUES ('987654321', 'Abner', 'm', '1998-06-12', 'Spouse');
+INSERT INTO departement VALUES ('123456789', 'Michael', 'm', '1998-06-12', 'Son');
+INSERT INTO departement VALUES ('123456789', 'Alice', 'f', '1998-06-12', 'Doughter');
+INSERT INTO departement VALUES ('123456789', 'Elizabeth', 'f', '1998-06-12', Spouse);
+
+
+INSERT INTO dept_locations VALUES ('5', 'Bellaire');
+INSERT INTO dept_locations VALUES ('5', 'Sugarland');
+INSERT INTO dept_locations VALUES ('5', 'Houston');
+
+
+INSERT INTO project VALUES ('ProductZ', '3', 'Bellarire', '5')
+INSERT INTO project VALUES ('Computerization', '10', 'Stafford', '4')
+INSERT INTO project VALUES ('Reorganization', '20', 'Houston', '1')
+INSERT INTO project VALUES ('Newbenefits', '30', 'Stafford', '4')
+
+								
+INSERT INTO works_on VALUES ('666884444', '3', '40.0');
+INSERT INTO works_on VALUES ('453453453', '1', '20.0');
+INSERT INTO works_on VALUES ('333445555', '2', '10.0');
+INSERT INTO works_on VALUES ('333445555', '3', '10.0');
+INSERT INTO works_on VALUES ('333445555', '10', '10.0');
+INSERT INTO works_on VALUES ('333445555', '20', '10.0');
+INSERT INTO works_on VALUES ('333445555', '30', '30.0');
+INSERT INTO works_on VALUES ('999887777', '10', '10.0');
+INSERT INTO works_on VALUES ('987987987', '30', '5.0');
+INSERT INTO works_on VALUES ('987654321', '30', '20.0');
+INSERT INTO works_on VALUES ('987654321', '20', '15.0');
+INSERT INTO works_on VALUES ('888665555', '20', '10.0');
+
+
+ALTER TABLE department ADD FOREIGN KEY (mgr_ssn) REFERENCES employee(ssn);
+ALTER TABLE employee ADD FOREIGN KEY (Super_ssn) REFERENCES employee(ssn);
+ALTER TABLE employee ADD FOREIGN KEY (Dno) REFERENCES department(Dnumber);
+ALTER TABLE dept_locations ADD FOREIGN KEY (Dnumber) REFERENCES department(Dnumber);
+ALTER TABLE project ADD FOREIGN KEY (Dnum) REFERENCES department(Dnumber);
+ALTER TABLE works_on ADD FOREIGN KEY (Essn) REFERENCES employee(ssn);
+ALTER TABLE work_on ADD FOREIGN KEY (Pno) REFERENCES project(Pnumber);
+ALTER TABLE department ADD FOREIGN KEY (Essn) REFERENCES employee(ssn);
+
+
+
+
+
+
